@@ -28,6 +28,7 @@ class EmailService {
         host: this.smtpHost,
         port: this.smtpPort,
         secure: this.smtpSecure,
+        requireTLS: true,
         auth: {
           user: this.emailUser,
           pass: this.emailPass
