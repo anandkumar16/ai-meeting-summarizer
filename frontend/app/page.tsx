@@ -30,7 +30,7 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
 
-  const handleStepChange = (stepId) => {
+  const handleStepChange = (stepId: any) => {
     setCurrentStep(stepId)
   }
 
@@ -163,11 +163,11 @@ export default function Home() {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              <StaggerItem delay={0.1}>
+              <StaggerItem>
                 <AIPromptCustomizer customPrompt={customPrompt} setCustomPrompt={setCustomPrompt} />
               </StaggerItem>
 
-              <StaggerItem delay={0.2}>
+              <StaggerItem>
                 <EnhancedCard className="p-4" hover>
                   <h3 className="font-semibold mb-3 font-heading">Quick Stats</h3>
                   <div className="space-y-2 text-sm">
