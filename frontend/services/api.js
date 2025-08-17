@@ -5,11 +5,11 @@ import axios from "axios"
 const api = axios.create({
   baseURL: "https://ai-meeting-summarizer-luix.onrender.com/api",
   timeout: 30000,
-  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
 })
+
 
 // Request interceptor for logging
 api.interceptors.request.use(

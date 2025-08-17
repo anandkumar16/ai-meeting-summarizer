@@ -10,10 +10,9 @@ const PORT = process.env.PORT || 3000;
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: process.env.FRONTEND_URL, 
-  methods: ["GET","POST","PUT","DELETE"],
-  credentials: true
-}));
+  origin: "https://ai-meeting-summarizer-rho.vercel.app", 
+  credentials: false,
+}))
 
 // Rate limiting
 const limiter = rateLimit({
