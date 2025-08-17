@@ -2,15 +2,10 @@
 
 import axios from "axios"
 
-const API_BASE = axios.create({
-  baseURL: import.meta.env.VITE_API_URL + "/api",
-  withCredentials: true,
-});
-
-// Create axios instance with default config
 const api = axios.create({
-  baseURL: API_BASE,
+  baseURL: "https://ai-meeting-summarizer-luix.onrender.com/api",
   timeout: 30000,
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
@@ -37,7 +32,6 @@ api.interceptors.response.use(
   (error) => {
     console.error("[v0] API Response Error:", error.response?.status, error.message)
 
-    // Handle different error types
     if (error.code === "ECONNABORTED") {
       throw new Error("Request timeout. Please try again.")
     }
@@ -47,7 +41,6 @@ api.interceptors.response.use(
     }
 
     const { status, data } = error.response
-
     switch (status) {
       case 400:
         throw new Error(data?.message || "Invalid request. Please check your input.")
@@ -62,6 +55,8 @@ api.interceptors.response.use(
     }
   },
 )
+
+
 
 // API Functions
 export const generateSummary = async ({ transcript, prompt }) => {
